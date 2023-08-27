@@ -27,6 +27,6 @@ export function AuthMiddleware(req: Request, res: Response, next: NextFunction )
 
     } catch (error) {
         console.log(error);
-        return res.status(401).json({error: "Token invalid"});
+        return res.status(498).json({error: "Token invalid"});
     }
 }

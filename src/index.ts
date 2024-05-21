@@ -1,14 +1,11 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { PrismaClient } from "@prisma/client";
 import express  from "express";
-
-
+import { PrismaClient } from "@prisma/client";
+import { AuthMiddleware } from './middlewares/auth';
 import { UserController } from './controller/UserController';
 import { AuthController } from './controller/AuthController';
-
-import { AuthMiddleware } from './middlewares/auth';
 
 export const prisma  = new PrismaClient();
 
@@ -21,6 +18,8 @@ const authController = new AuthController();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.raw({ type: "application/vnd.custom-type" }));
+app.use(express.text({ type: "text/html" }));
 
 app.post("/create", userController.store);
 app.get("/users", AuthMiddleware, userController.index);

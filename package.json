@@ -1,10 +1,10 @@
 {
   "name": "api-node",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/server.ts",
+    "dev": "nodemon src/index.ts",
     "vercel-build": "npx prisma migrate deploy"
   },
   "dependencies": {

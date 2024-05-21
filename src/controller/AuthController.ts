@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
-import { prisma } from "../utils/prisma";
+
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
+import { prisma } from "../index";
 
 
 export class AuthController {
